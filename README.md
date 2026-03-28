@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Docker Security Scanner
 
 | Field | Detail |
@@ -114,3 +115,6 @@ SKCT_727823TUCY049_DockerSecurityScanner/
 ## Ethical Considerations
 
 All scanning was performed exclusively on containers and images running on a personally owned virtual machine. No external hosts, production systems, or third-party infrastructure were targeted. The tool is designed for defensive security auditing of environments under the user's own control.
+=======
+# hacker-skct-727823TUCY049
+>>>>>>> 8982b53fa3ee673b9ffcbfde4f784d153b1e3cc4
