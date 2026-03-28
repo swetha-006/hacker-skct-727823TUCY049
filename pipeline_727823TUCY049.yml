@@ -1,0 +1,48 @@
+project_name: DockerSecurityScanner_727823TUCY049
+student_name: Swetha M
+roll_number: "727823TUCY049"
+version: "1.0"
+
+pipeline:
+  name: docker_security_scanner_pipeline
+  description: >
+    Three-stage pipeline that sets up the lab environment, executes
+    three distinct Docker security scan test cases, and analyses
+    the consolidated results.
+
+  stages:
+
+    - name: setup_lab
+      description: Verify Docker, install dependencies, pull images, start demo container
+      script: code/setup_lab.py
+      interpreter: python3
+      outputs:
+        - demo container running (dss_demo_container)
+        - alpine:latest image pulled
+
+    - name: run_tool
+      description: Execute TC1 (full scan), TC2 (HIGH containers), TC3 (images only)
+      script: code/run_tool.py
+      interpreter: python3
+      depends_on: setup_lab
+      outputs:
+        - scan_results_tc1_<timestamp>.json
+        - scan_results_tc2_<timestamp>.json
+        - scan_results_tc3_<timestamp>.json
+
+    - name: analyze_results
+      description: Consolidate JSON outputs, print severity tables, write consolidated report
+      script: code/analyze_results.py
+      interpreter: python3
+      depends_on: run_tool
+      outputs:
+        - consolidated_report.json
+
+execution:
+  environment: Kali Linux (VirtualBox VM)
+  docker_required: true
+  python_version: "3.11+"
+  run_command: |
+    python3 code/setup_lab.py
+    python3 code/run_tool.py
+    python3 code/analyze_results.py

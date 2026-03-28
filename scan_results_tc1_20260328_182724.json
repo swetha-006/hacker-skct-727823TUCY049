@@ -1,0 +1,54 @@
+{
+  "scan_metadata": {
+    "student_name": "Swetha M",
+    "roll_number": "727823TUCY049",
+    "project_name": "DockerSecurityScanner",
+    "scan_time": "2026-03-28 18:27:24",
+    "test_case": 1,
+    "mode": "full",
+    "severity_filter": "ALL"
+  },
+  "container_findings": [
+    {
+      "container_id": "13edd8e7894e",
+      "container_name": "dss_demo_container",
+      "image": [
+        "alpine:latest"
+      ],
+      "status": "running",
+      "issues": [
+        "Port 80/tcp exposed on ALL interfaces (0.0.0.0:8888)",
+        "Container is running in PRIVILEGED mode \u2014 full host access",
+        "Container process runs as ROOT (UID 0)",
+        "No memory limit set (OOM risk)",
+        "No CPU quota set (resource exhaustion risk)",
+        "Root filesystem is WRITABLE (consider --read-only)"
+      ],
+      "severity": "HIGH"
+    }
+  ],
+  "image_findings": [
+    {
+      "image_id": "sha256:e2ac70e7319a",
+      "tags": [
+        "hello-world:latest"
+      ],
+      "issues": [],
+      "severity": "LOW"
+    },
+    {
+      "image_id": "sha256:a40c03cbb81c",
+      "tags": [
+        "alpine:latest"
+      ],
+      "issues": [],
+      "severity": "LOW"
+    }
+  ],
+  "summary": {
+    "containers_scanned": 1,
+    "images_scanned": 2,
+    "container_issues": 6,
+    "image_issues": 0
+  }
+}
