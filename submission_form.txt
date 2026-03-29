@@ -1,7 +1,7 @@
 Name            : Swetha M
 Roll Number     : 727823TUCY049
-Project Name    : DockerSecurityScanner
-Project Category: Security Automation / Docker Hardening
+Project Name    : Docker_Security_Scanner
+Project Category: Security Automation / Docker Hardening / Security Scanner
 GitHub URL      : https://github.com/<your-username>/hacker-skct-727823TUCY049
 Total Commits   : [fill in before submission]
 Tools Used      : docker (Python SDK), reportlab, argparse, subprocess, json
@@ -9,3 +9,4 @@ Tool Summary    : Scans running Docker containers and local images for security
                   misconfigurations including privileged mode, root execution,
                   unbound port exposure, missing resource limits, and outdated images;
                   outputs structured JSON findings and a severity analysis table.
+
